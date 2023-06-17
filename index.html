@@ -31,6 +31,36 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+<style>
+    .lazy-image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+      if ("IntersectionObserver" in window) {
+        var lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var lazyImage = entry.target;
+              lazyImage.src = lazyImage.dataset.src;
+              lazyImage.classList.remove("lazy");
+              lazyImageObserver.unobserve(lazyImage);
+            }
+          });
+        });
+        lazyImages.forEach(function(lazyImage) {
+          lazyImageObserver.observe(lazyImage);
+        });
+      }
+    });
+  </script>
+
+
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LG4EPSX34">
     </script>
@@ -96,7 +126,7 @@
 <div class="auto-container">
 <div class="clearfix">
 <div class="pull-left logo-box">
-<div class="logo"><a href="https://corphr.in"><img src="https://corphr.in/admin/style/images/logo_logo.png" alt="CORPHR"></a></div>
+<div class="logo"><a href="https://corphr.in"><img class="lazy" src="https://placehold.co/1x1.png" data-src="https://corphr.in/admin/style/images/logo_logo.png" alt="CORPHR"></a></div>
 </div>
 <div class="nav-outer clearfix">
 
@@ -140,8 +170,8 @@
 </li>
 <li><a href="contact-us">Contact Us</a></li>
 
-<li><a href="https://api.whatsapp.com/send?phone=917428999037&text=Hi CORPHR" target="_blank"><img src="https://corphr.in/img/whatsapp.png" width="25px" class="mr-1" alt="7428999037"> 7428999037</a></li>
-<li><a href="tel:7428999037"><img src="https://corphr.in/img/phone.png" width="20px" class="mr-1" alt="7428999037"> 7428999037</a></li>
+<li><a href="https://api.whatsapp.com/send?phone=917428999037&text=Hi CORPHR" target="_blank"><img src="https://placehold.co/1x1.png" data-src="https://corphr.in/img/whatsapp.png" width="25px" class="mr-1 lazy" alt="7428999037"> 7428999037</a></li>
+<li><a href="tel:7428999037"><img src="https://placehold.co/1x1.png" data-src="https://corphr.in/img/phone.png" width="20px" class="mr-1 lazy" alt="7428999037"> 7428999037</a></li>
 </ul>
 </div>
 </nav>
@@ -154,7 +184,7 @@
 <div class="sticky-header">
 <div class="auto-container clearfix">
 
-<div class="logo pull-left"> <a href="https://corphr.in" class="img-responsive"><img src="https://corphr.in/admin/style/images/signature_logo-footer.png" alt="CORPHR"></a> </div>
+<div class="logo pull-left"> <a href="https://corphr.in" class="img-responsive"><img class="lazy" src="https://placehold.co/1x1.png" data-src="https://corphr.in/admin/style/images/signature_logo-footer.png" alt="CORPHR"></a> </div>
 
 <div class="right-col pull-right">
 
@@ -196,8 +226,8 @@
 </li>
 <li><a href="contact-us">Contact Us</a></li>
 
-<li><a href="https://api.whatsapp.com/send?phone=917428999037&text=Hi CORPHR" target="_blank"><img src="img/whatsapp.png" width="25px" class="mr-1" alt="7428999037"> 7428999037</a></li>
-<li><a href="tel:7428999037"><img src="https://corphr.in/img/phone.png" width="20px" class="mr-1" alt="7428999037"> 7428999037</a></li>
+<li><a href="https://api.whatsapp.com/send?phone=917428999037&text=Hi CORPHR" target="_blank"><img src="https://placehold.co/1x1.png" data-src="img/whatsapp.png" width="25px" class="mr-1 lazy" alt="7428999037"> 7428999037</a></li>
+<li><a href="tel:7428999037"><img src="https://placehold.co/1x1.png" data-src="https://corphr.in/img/phone.png" width="20px" class="mr-1 lazy" alt="7428999037"> 7428999037</a></li>
 </ul>
 </div>
 </nav>
@@ -250,21 +280,21 @@ Business On Board</h1>
 <div class="clearfix">
 <div class="services-block col-lg-4 col-md-6 col-sm-12">
 <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-<div class="icon-box"><img src="https://corphr.in/img/perfect-fit.png" class="img-fluid lazy" alt="perfect fit" /></div>
+<div class="icon-box"><img src="https://placehold.co/1x1.png" data-src="https://corphr.in/img/perfect-fit.png" class="img-fluid lazy" alt="perfect fit" /></div>
 <h5><a href="#">Get the Perfect Fit</a></h5>
 <div class="text">We will help you get the right fit for your business venture</div>
 <a class="plus-box" href="#">View </a></div>
 </div>
 <div class="services-block col-lg-4 col-md-6 col-sm-12">
 <div class="inner-box wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-<div class="icon-box"><img src="https://corphr.in/img/chatbot.png" class="img-fluid lazy" alt="chatbot" /></div>
+<div class="icon-box"><img src="https://placehold.co/1x1.png" data-src="https://corphr.in/img/chatbot.png" class="img-fluid lazy" alt="chatbot" /></div>
 <h5><a href="#">Chatbot Screening</a></h5>
 <div class="text">Let AI manage all screening hassles &amp; reach out to more prospects in less time</div>
 <a class="plus-box" href="#">View </a></div>
 </div>
 <div class="services-block col-lg-4 col-md-6 col-sm-12">
 <div class="inner-box wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1500ms">
-<div class="icon-box"><img src="https://corphr.in/img/stability.png" class="img-fluid lazy" alt="stability" /></div>
+<div class="icon-box"><img src="https://placehold.co/1x1.png" data-src="https://corphr.in/img/stability.png" class="img-fluid lazy" alt="stability" /></div>
 <h5><a href="#">Stability factor</a></h5>
 <div class="text">94% of candidates provided by us to companies serve for a long time</div>
 <a class="plus-box" href="#">View </a></div>
@@ -310,7 +340,7 @@ Business On Board</h1>
 </div>
 <div class="video-column col-lg-6 col-md-12 col-sm-12">
 <div class="inner-column">
-<div class="video-box"><figure class="image"> <img class="lazy" src="https://corphr.in/img/video-bg.jpg" alt="our video" /> </figure></div>
+<div class="video-box"><figure class="image"> <img class="lazy" src="https://placehold.co/1x1.png" data-src="https://corphr.in/img/video-bg.jpg" alt="our video" /> </figure></div>
 <div class="fact-counter">
 <div class="auto-container">
 <div class="row clearfix">
@@ -470,7 +500,7 @@ Business On Board</h1>
 
 <div class="gallery-block">
 <div class="inner-box">
-<div class="image"> <img src="https://corphr.in/img/owl-1.jpg" alt="Your Staffing Mate" />
+<div class="image"> <img class="lazy" src="https://placehold.co/1x1.png" data-src="https://corphr.in/img/owl-1.jpg" alt="Your Staffing Mate" />
 <div class="overlay-box">
 <div class="overlay-inner">
 <h3> <a href="#">Your Staffing Mate</a> </h3>
@@ -483,7 +513,7 @@ Business On Board</h1>
 
 <div class="gallery-block">
 <div class="inner-box">
-<div class="image"> <img src="https://corphr.in/img/owl-2.jpg" alt="High-quality Candidates" />
+<div class="image"> <img class="lazy" src="https://placehold.co/1x1.png" data-src="https://corphr.in/img/owl-2.jpg" alt="High-quality Candidates" />
 <div class="overlay-box">
 <div class="overlay-inner">
 <h3> <a href="#">High-quality Candidates </a> </h3>
@@ -496,7 +526,7 @@ Business On Board</h1>
 
 <div class="gallery-block">
 <div class="inner-box">
-<div class="image"> <img src="https://corphr.in/img/owl-3.jpg" alt="Recruitment Specialists" />
+<div class="image"> <img class="lazy" src="https://placehold.co/1x1.png" data-src="https://corphr.in/img/owl-3.jpg" alt="Recruitment Specialists" />
 <div class="overlay-box">
 <div class="overlay-inner">
 <h3> <a href="#">Recruitment Specialists</a> </h3>
@@ -558,7 +588,7 @@ you will get everything under one roof </div>
 <div class="row clearfix">
 <div class="services-block-two col-lg-4 col-md-6 col-sm-12 mb-4">
 <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-<div class="image"> <img src="https://corphr.in/admin/style/images/content/20191206055806_1.jpg" alt="Top Executive Recruitment Firm" class="img-fluid">
+<div class="image"> <img src="https://placehold.co/1x1.png" data-src="https://corphr.in/admin/style/images/content/20191206055806_1.jpg" alt="Top Executive Recruitment Firm" class="img-fluid lazy">
 <div class="overlay-box">
 <div class="overlay-inner">
 <h5> <a href="executive-recruitment-services">Top Executive Recruitment Firm</a> </h5>
@@ -576,7 +606,7 @@ you will get everything under one roof </div>
 </div>
 <div class="services-block-two col-lg-4 col-md-6 col-sm-12 mb-4">
 <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-<div class="image"> <img src="https://corphr.in/admin/style/images/content/20191206062159_slider2.jpg" alt="Senior and Middle Level Hiring Services" class="img-fluid">
+<div class="image"> <img src="https://placehold.co/1x1.png" data-src="https://corphr.in/admin/style/images/content/20191206062159_slider2.jpg" alt="Senior and Middle Level Hiring Services" class="img-fluid lazy">
 <div class="overlay-box">
 <div class="overlay-inner">
 <h5> <a href="https://corphr.in/senior-and-middle-level-hiring">Senior and Middle Level Hiring Services</a> </h5>
@@ -594,7 +624,7 @@ you will get everything under one roof </div>
 </div>
 <div class="services-block-two col-lg-4 col-md-6 col-sm-12 mb-4">
 <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-<div class="image"> <img src="https://corphr.in/admin/style/images/content/20191206060703_2.jpg" alt="Recruitment Process Outsourcing" class="img-fluid">
+<div class="image"> <img src="https://placehold.co/1x1.png" data-src="https://corphr.in/admin/style/images/content/20191206060703_2.jpg" alt="Recruitment Process Outsourcing" class="img-fluid lazy">
 <div class="overlay-box">
 <div class="overlay-inner">
 <h5> <a href="https://corphr.in/recruitment-process-outsourcing">Recruitment Process Outsourcing</a> </h5>
@@ -612,7 +642,7 @@ you will get everything under one roof </div>
 </div>
 <div class="services-block-two col-lg-4 col-md-6 col-sm-12 mb-4">
 <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-<div class="image"> <img src="https://corphr.in/admin/style/images/content/20191206062239_global-sourcing.jpg" alt="Global Sourcing Services" class="img-fluid">
+<div class="image"> <img src="https://placehold.co/1x1.png" data-src="https://corphr.in/admin/style/images/content/20191206062239_global-sourcing.jpg" alt="Global Sourcing Services" class="img-fluid lazy">
 <div class="overlay-box">
 <div class="overlay-inner">
 <h5> <a href="global-sourcing">Global Sourcing Services</a> </h5>
@@ -630,7 +660,7 @@ you will get everything under one roof </div>
 </div>
 <div class="services-block-two col-lg-4 col-md-6 col-sm-12 mb-4">
 <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-<div class="image"> <img src="https://corphr.in/admin/style/images/content/20191206061515_market-inteligence.jpg" alt="Market Intelligence" class="img-fluid">
+<div class="image"> <img src="https://placehold.co/1x1.png" data-src="https://corphr.in/admin/style/images/content/20191206061515_market-inteligence.jpg" alt="Market Intelligence" class="img-fluid lazy">
 <div class="overlay-box">
 <div class="overlay-inner">
 <h5> <a href="market-intelligence">Market Intelligence</a> </h5>
@@ -648,7 +678,7 @@ you will get everything under one roof </div>
 </div>
 <div class="services-block-two col-lg-4 col-md-6 col-sm-12 mb-4">
 <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-<div class="image"> <img src="https://corphr.in/admin/style/images/content/20191206061911_3.jpg" alt="Interim Management" class="img-fluid">
+<div class="image"> <img src="https://placehold.co/1x1.png"  data-src="https://corphr.in/admin/style/images/content/20191206061911_3.jpg" alt="Interim Management" class="img-fluid lazy">
 <div class="overlay-box">
 <div class="overlay-inner">
 <h5> <a href="interim-management">Interim Management</a> </h5>
@@ -727,12 +757,12 @@ of mouth from clients! </h2>
 </div>
 <div class="carousel-outer">
 <ul class="sponsors-carousel owl-carousel owl-theme">
-<li><div class="image-box"><img src="https://corphr.in/admin/style/images/builder/20221228061609_spinny.png" alt="Spinny" title="Spinny"></div></li>
-<li><div class="image-box"><img src="https://corphr.in/admin/style/images/builder/20221228061646_justdial.jpg" alt="Justdial" title="Justdial"></div></li>
-<li><div class="image-box"><img src="https://corphr.in/admin/style/images/builder/20221228061719_marg-logo.png" alt="Marg logo" title="Marg logo"></div></li>
-<li><div class="image-box"><img src="https://corphr.in/admin/style/images/builder/20221228061751_fia-global.jpg" alt="FIFA" title="FIFA"></div></li>
-<li><div class="image-box"><img src="https://corphr.in/admin/style/images/builder/20221228062016_20211225113454_milton.jpg" alt="Milton" title="Milton"></div></li>
-<li><div class="image-box"><img src="https://corphr.in/admin/style/images/builder/20221228062047_20190515074738_fc-logo.png" alt="First cry" title="First cry"></div></li>
+<li><div class="image-box"><img class="lazy" src="https://placehold.co/1x1.png" data-src="https://corphr.in/admin/style/images/builder/20221228061609_spinny.png" alt="Spinny" title="Spinny"></div></li>
+<li><div class="image-box"><img class="lazy" src="https://placehold.co/1x1.png" data-src="https://corphr.in/admin/style/images/builder/20221228061646_justdial.jpg" alt="Justdial" title="Justdial"></div></li>
+<li><div class="image-box"><img class="lazy" src="https://placehold.co/1x1.png" data-src="https://corphr.in/admin/style/images/builder/20221228061719_marg-logo.png" alt="Marg logo" title="Marg logo"></div></li>
+<li><div class="image-box"><img class="lazy" src="https://placehold.co/1x1.png" data-src="https://corphr.in/admin/style/images/builder/20221228061751_fia-global.jpg" alt="FIFA" title="FIFA"></div></li>
+<li><div class="image-box"><img class="lazy" src="https://placehold.co/1x1.png" data-src="https://corphr.in/admin/style/images/builder/20221228062016_20211225113454_milton.jpg" alt="Milton" title="Milton"></div></li>
+<li><div class="image-box"><img class="lazy" src="https://placehold.co/1x1.png" data-src="https://corphr.in/admin/style/images/builder/20221228062047_20190515074738_fc-logo.png" alt="First cry" title="First cry"></div></li>
 </ul>
 </div>
 </div>
@@ -823,7 +853,7 @@ Statutory Compliance Services </option>
 
 <div class="footer-column col-lg-7 col-md-6 col-sm-12">
 <div class="footer-widget logo-widget">
-<div class="logo"> <a href="https://corphr.in"><img src="https://corphr.in/admin/style/images/signature_logo-footer.png" alt="CORPHR" /></a> </div>
+<div class="logo"> <a href="https://corphr.in"><img class="lazy" src="https://placehold.co/1x1.png" data-src="https://corphr.in/admin/style/images/signature_logo-footer.png" alt="CORPHR" /></a> </div>
 <div class="text">Connect with Corphr, India's top recruitment agency and hr consulting firm and get the best resources for your business.</div>
 <ul class="list-style-two">
 <li><span class="icon fa fa-phone"></span> +91-7428999037</li>
@@ -909,7 +939,7 @@ Statutory Compliance Services </option>
 
 
 <div>
-<div> <a id="tars-widget-fab" class="fab bounce closed" data-convid="ILbW3q" href="https://convbot.hellotars.com/conv/ILbW3q" target="_blank"><img class="convbot" src="https://corphr.in/img/chat-icon.png" alt="Live Chat"></a><script data-cfasync="false" src="https://corphr.in/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(function(){var js,fs,d=document,id="tars-widget-script",b="https://tars-file-upload.s3.amazonaws.com/share/";if(!d.getElementById(id)){js=d.createElement("script");js.id=id;js.type="text/javascript";js.src=b+"js/widget.js";fs=d.getElementsByTagName("script")[0];fs.parentNode.insertBefore(js,fs)}})();</script>
+<div> <a id="tars-widget-fab" class="fab bounce closed" data-convid="ILbW3q" href="https://convbot.hellotars.com/conv/ILbW3q" target="_blank"><img class="convbot lazy" src="https://corphr.in/img/chat-icon.png" alt="Live Chat"></a><script data-cfasync="false" src="https://corphr.in/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(function(){var js,fs,d=document,id="tars-widget-script",b="https://tars-file-upload.s3.amazonaws.com/share/";if(!d.getElementById(id)){js=d.createElement("script");js.id=id;js.type="text/javascript";js.src=b+"js/widget.js";fs=d.getElementsByTagName("script")[0];fs.parentNode.insertBefore(js,fs)}})();</script>
 </div>
 </div>
 
