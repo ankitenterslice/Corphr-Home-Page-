@@ -31,33 +31,42 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <style>
-    .lazy-image {
+    .lazy {
       display: block;
       width: 100%;
       height: auto;
     }
   </style>
-
+  
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
-      if ("IntersectionObserver" in window) {
-        var lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              var lazyImage = entry.target;
-              lazyImage.src = lazyImage.dataset.src;
-              lazyImage.classList.remove("lazy");
-              lazyImageObserver.unobserve(lazyImage);
+  document.addEventListener("DOMContentLoaded", function() {
+    let lazyItems = [].slice.call(document.querySelectorAll(".lazy"));
+  
+    if ("IntersectionObserver" in window) {
+      let lazyObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            let lazyItem = entry.target;
+            // Check if the lazyItem is an image or an iframe (Youtube)
+            if (lazyItem.tagName.toLowerCase() === 'img') {
+              lazyItem.src = lazyItem.dataset.src;
+            } else if (lazyItem.tagName.toLowerCase() === 'iframe') {
+              lazyItem.src = lazyItem.dataset.src;
             }
-          });
+  
+            lazyItem.classList.remove("lazy");
+            lazyObserver.unobserve(lazyItem);
+          }
         });
-        lazyImages.forEach(function(lazyImage) {
-          lazyImageObserver.observe(lazyImage);
-        });
-      }
-    });
+      });
+  
+      lazyItems.forEach(function(lazyItem) {
+        lazyObserver.observe(lazyItem);
+      });
+    }
+  });
   </script>
+  
 
 
 
@@ -949,7 +958,7 @@ Statutory Compliance Services </option>
 </div>
 <div class="modal-body">
 <div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nuf_s76h1J4?playlist=nuf_s76h1J4&loop=1&enablejsapi=1&version=3&playerapiid=ytplayer" allowfullscreen></iframe>
+<iframe class="embed-responsive-item lazy" data-src="https://www.youtube.com/embed/nuf_s76h1J4?playlist=nuf_s76h1J4&loop=1&enablejsapi=1&version=3&playerapiid=ytplayer" allowfullscreen></iframe>
 </div>
 </div>
 </div>
